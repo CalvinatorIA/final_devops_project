@@ -20,11 +20,11 @@ public class GridControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private GridRepository repo;
+    private GridService service;  // Mock service (no repo needed)
 
     @Test
     public void testGenerateGridDefault() throws Exception {
-        when(repo.save(any(GridRequest.class))).thenReturn(new GridRequest());
+        when(service.saveRequest(any(GridRequest.class))).thenReturn(new GridRequest());
         mockMvc.perform(get("/grid"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString(" 0 ")));
@@ -32,7 +32,7 @@ public class GridControllerTest {
 
     @Test
     public void testGenerateGridCustom() throws Exception {
-        when(repo.save(any(GridRequest.class))).thenReturn(new GridRequest());
+        when(service.saveRequest(any(GridRequest.class))).thenReturn(new GridRequest());
         mockMvc.perform(get("/grid")
                         .param("width", "2")
                         .param("length", "2")

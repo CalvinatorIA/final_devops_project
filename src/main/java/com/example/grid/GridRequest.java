@@ -1,10 +1,12 @@
 package com.example.grid;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
+@Table(name = "grid_request")
 public class GridRequest {
     @Id
     @GeneratedValue

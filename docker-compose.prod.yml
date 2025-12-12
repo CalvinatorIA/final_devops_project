@@ -4,7 +4,7 @@ services:
     image: grid-app:latest
     build: .
     ports:
-      - "8081:8080"
+      - "8084:8080"
     depends_on:
       - db
     environment:
